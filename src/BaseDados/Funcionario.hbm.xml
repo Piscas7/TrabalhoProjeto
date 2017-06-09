@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 7/jun/2017 21:44:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="BaseDados.Funcionario" table="FUNCIONARIO" schema="PROJETOOO" optimistic-lock="version">
+        <id name="codigo" type="big_decimal">
+            <column name="CODIGO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nome" type="string">
+            <column name="NOME" length="50" not-null="true" />
+        </property>
+        <property name="especialidade" type="string">
+            <column name="ESPECIALIDADE" length="50" not-null="true" />
+        </property>
+        <set name="encomendas" table="ENCOMENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODFUNCIONARIO" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="BaseDados.Encomenda" />
+        </set>
+        <set name="servicos" table="SERVICO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODFUNCIONARIO" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="BaseDados.Servico" />
+        </set>
+        <set name="vendaservicoses" table="VENDASERVICOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODFUNCIONARIO" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="BaseDados.Vendaservicos" />
+        </set>
+    </class>
+</hibernate-mapping>

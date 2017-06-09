@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 7/jun/2017 21:44:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="BaseDados.Servico" table="SERVICO" schema="PROJETOOO" optimistic-lock="version">
+        <id name="codigo" type="big_decimal">
+            <column name="CODIGO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="funcionario" class="BaseDados.Funcionario" fetch="select">
+            <column name="CODFUNCIONARIO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cliente" class="BaseDados.Cliente" fetch="select">
+            <column name="CODCLIENTE" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tiposervico" class="BaseDados.Tiposervico" fetch="select">
+            <column name="CODTIPO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="NOME" length="50" not-null="true" />
+        </property>
+        <property name="preco" type="double">
+            <column name="PRECO" precision="126" scale="0" not-null="true" />
+        </property>
+        <set name="linhavendaservicoses" table="LINHAVENDASERVICOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODSERVICO" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="BaseDados.Linhavendaservicos" />
+        </set>
+    </class>
+</hibernate-mapping>

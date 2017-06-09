@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 7/jun/2017 21:44:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="BaseDados.Linhavendaprodutos" table="LINHAVENDAPRODUTOS" schema="PROJETOOO" optimistic-lock="version">
+        <id name="codigo" type="big_decimal">
+            <column name="CODIGO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="produto" class="BaseDados.Produto" fetch="select">
+            <column name="CODPRODUTO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vendaprodutos" class="BaseDados.Vendaprodutos" fetch="select">
+            <column name="CODVENDAPRODUTO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="quantidade" type="big_decimal">
+            <column name="QUANTIDADE" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="precounitario" type="double">
+            <column name="PRECOUNITARIO" precision="126" scale="0" not-null="true" />
+        </property>
+        <property name="precototal" type="double">
+            <column name="PRECOTOTAL" precision="126" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

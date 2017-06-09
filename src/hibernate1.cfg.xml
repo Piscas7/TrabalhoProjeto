@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+    <property name="hibernate.connection.username">projetooo</property>
+    <property name="hibernate.connection.password">projetooo</property>
+    <mapping resource="BaseDados/Linhavendaprodutos.hbm.xml"/>
+    <mapping resource="BaseDados/Marcacao.hbm.xml"/>
+    <mapping resource="BaseDados/Encomenda.hbm.xml"/>
+    <mapping resource="BaseDados/Funcionario.hbm.xml"/>
+    <mapping resource="BaseDados/Produto.hbm.xml"/>
+    <mapping resource="BaseDados/Servico.hbm.xml"/>
+    <mapping resource="BaseDados/Vendaprodutos.hbm.xml"/>
+    <mapping resource="BaseDados/Vendaservicos.hbm.xml"/>
+    <mapping resource="BaseDados/Linhavendaservicos.hbm.xml"/>
+    <mapping resource="BaseDados/Tiposervico.hbm.xml"/>
+    <mapping resource="BaseDados/Cliente.hbm.xml"/>
+    <mapping resource="BaseDados/Linhaencomenda.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
